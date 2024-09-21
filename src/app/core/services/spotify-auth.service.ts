@@ -88,7 +88,7 @@ export class SpotifyAuthService {
     }
   }
 
-  async getToken(payload: any) {
+  private async getToken(payload: any) {
     try {
       const body = await fetch(environment.spotify.urlAuthentication, payload);
       const response: ResponseTokenAuthenticator = await body.json();

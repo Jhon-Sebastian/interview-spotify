@@ -1,5 +1,6 @@
 import { Route } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { itemResolver } from './resolvers/item.resolver';
 
 export const DASHBOARD_ROUTES: Route[] = [
   {
@@ -14,11 +15,14 @@ export const DASHBOARD_ROUTES: Route[] = [
           ),
       },
       {
-        path: 'detail',
+        path: 'detail/:id',
         loadComponent: () =>
           import('./components/detail-item/detail-item.component').then(
             (m) => m.DetailItemComponent
           ),
+        resolve: {
+          item: itemResolver,
+        },
       },
     ],
   },

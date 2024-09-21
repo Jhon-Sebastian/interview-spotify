@@ -1,1 +1,41 @@
-<p class="text-white">detail-item works!</p>
+<div class="w-[65%] mx-auto">
+  <button routerLink="/dashboard"
+    class="text-white flex justify-center items-center mt-10 gap-2 border-2 p-2 rounded-2xl border-VerdeSpotify hover:scale-[101%] transition-all">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+      class="size-4">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+    </svg>
+    Volver
+  </button>
+
+  @if(item()){
+  <div class="w-full flex gap-4 bg-higthlig my-5 rounded-lg p-5 hover:scale-[102%] transition-all">
+    <img class="w-[300px] rounded-[4px] bg-cover" [src]="item().album?.images?.[0]?.url" alt="" />
+    <div class="flex flex-col justify-between">
+      <div class="flex flex-col">
+        <h1 class="text-white font-bold text-5xl text-VerdeSpotify">
+          {{ item().name }}
+        </h1>
+        <h3 class="text-white font-bold text-2xl text-parrafos">
+          {{ item().album.name }}
+        </h3>
+      </div>
+      <div class="flex gap-1">
+        <p class="flex gap-1 text-white text-2xl">
+          {{ item().artists[0].name }}
+        </p>
+        <span class="text-parrafos text-2xl h-auto w-auto flex items-center">•</span>
+        <p class="text-white text-parrafos text-2xl">
+          {{ item().album.release_date | date : "yyyy" }}
+        </p>
+        <span class="text-parrafos text-2xl h-auto w-auto flex items-center">•</span>
+        <p class="text-white text-parrafos text-2xl">
+          {{ item().album.total_tracks }} canciones
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-[35%] mx-auto" id="iframe"></div>
+  }
+</div>

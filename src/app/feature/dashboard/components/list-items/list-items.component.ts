@@ -1,13 +1,19 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input,
+} from '@angular/core';
 import { TracksItem } from '../../../../shared/interfaces/dashboard/api-spotity.interface';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-list-items',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './list-items.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListItemsComponent {
-  item = input<TracksItem>();
+  readonly item = input.required<TracksItem>();
 }
