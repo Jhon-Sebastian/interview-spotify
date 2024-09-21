@@ -1,0 +1,20 @@
+@if(item()){
+<div
+  class="item flex justify-between items-center w-full bg-higthlig rounded-2xl py-2 px-4 border-[1px] border-higthlig hover:border-VerdeSpotify transition-all hover:scale-[102%] cursor-pointer">
+  <div class="container-detail flex items-center gap-2">
+    <div class="w-10 h-10">
+      <img class="w-full h-full rounded-[4px]" [src]="item()?.album?.images?.[0]?.url" alt="" />
+    </div>
+    <div class="titulo flex flex-col">
+      <h1 class="text-white">{{ item()?.name }}</h1>
+      <p class="flex gap-1 text-parrafos">
+        @for(artist of item()?.artists; track $index){
+        {{ artist.name }}
+        }
+      </p>
+    </div>
+  </div>
+
+  <p class="text-parrafos">{{ item()?.album?.name }}</p>
+</div>
+}
